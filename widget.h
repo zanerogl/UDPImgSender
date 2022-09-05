@@ -5,11 +5,13 @@
 #include <QDebug>
 #include <QFileDialog>
 #include <QPixmap>
+#include <vector>
+#include <string>
 
 #include "opencv2/opencv.hpp"
 
 #include "udpsender.h"
-#include "imgprocessor.h"
+//#include "imgprocessor.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
@@ -35,9 +37,20 @@ public:
     void imgPathBtnLIsClicked();
 
     /**
+     * @brief sendBtnIsClicked  点击发送按钮
+     */
+    void sendBtnIsClicked();
+
+    /**
      * @brief stopBtnIsClicked  点击停止按钮
      */
     void stopBtnIsClicked();
+
+    /**
+     * @brief pathConvert_Single2Double     单斜杠转双斜杠
+     * @param str
+     */
+    void pathConvert_Single2Double(QString &str);
 
 private:
     Ui::Widget *ui;
@@ -45,8 +58,8 @@ private:
 
     UdpSender *m_udpSender;
     ImgProcessor *m_imgProcessor;
-    QString m_imgPathH = "D:\\Temp\\img\\IhSample1.png";
-    QString m_imgPathL = "D:\\Temp\\img\\IlSample1.png";
+    QString m_imgPathH = "D://Temp//img//IhSample1.png";
+    QString m_imgPathL = "D://Temp//img//IlSample1.png";
 
     bool flag[2] {false};
 
